@@ -28,8 +28,11 @@ export PATH="/Users/banuprakash/Desktop/jdk-21/bin:"$PATH
 Option 2: <<better>>
 
 USE SDKMAN to manage java
+
 curl -s "https://get.sdkman.io" | bash
+
 sdk install java 21.0.6-tem
+
 sdk default java 21.0.6-tem 
 
 https://mydeveloperplanet.com/2022/04/05/how-to-manage-your-jdks-with-sdkman/#:~:text=Some%20time%20ago%2C%20a%20colleague%20of%20mine,maintain%20different%20versions%20of%20JDKs%2C%20Maven%2C%20etc.
