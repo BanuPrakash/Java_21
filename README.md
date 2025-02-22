@@ -25,7 +25,7 @@ vi ~/.zshrc
 export JAVA_HOME=/Users/banuprakash/Desktop/jdk-21
 export PATH="/Users/banuprakash/Desktop/jdk-21/bin:"$PATH
 
-Option 2: <<better>>
+Option 2: [better]
 
 USE SDKMAN to manage java
 
