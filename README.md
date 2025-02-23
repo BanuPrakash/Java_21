@@ -41,3 +41,29 @@ https://mydeveloperplanet.com/2022/04/05/how-to-manage-your-jdks-with-sdkman/#:~
 2) IntelliJ Ultimate edition https://www.jetbrains.com/idea/download/?section=mac
 
 ========
+
+java 9 - 21 Features:
+
+Java 9(September 2017) : Java Module System, StackWalker, ADS, JShell, FlightRecorder, Stream takeWhile, dropWhile
+=
+
+Java 10(March 2018) : Local Variable Type Inference, List.copyOf for immutable collection
+
+Java 11(September 2018) : Local Variable Type in Lambda Expressions
+
+Java 12(March 2019) : String Indent, Repeat, strip, isBlank and Transform, Teeing Collector [https://boottechnologies-ci.medium.com/java-stream-api-exploring-collectors-teeing-collector-16f260e9c492]
+
+Java 13(September 2019) : TextBlocks
+
+Java 14(March 2020) : Yield Keyword, Helpful NullPointerExceptions
+
+Java 15(September 2020) : Garbage Collector Updates
+
+Java 16(March 2021) : Pattern Matching for instanceof
+
+Java 17(September 2021) : Sealed Class
+
+Java 18: jwebserver [simple web server]
+
+Java 21(September 2023) : Virtual Threads, StringTemplate, Record Patterns,  Pattern Matching for Switch
+
