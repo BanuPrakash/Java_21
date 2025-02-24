@@ -103,3 +103,99 @@ Types of modules:
 Maven Multi-module and JPMS with ServiceLocator
 
 jlink --module-path util.jar:impl.jar:client.jar --add-modules client,util,impl --output myimage --launcher MYAPP=client/pkg.Main
+
+=======================
+
+Recap:
+* System modules
+* unnammed modules: without module-info.java
+* named module: module-info.java
+* atomcatic module: "jar" added to --module-path [here by default name will be that of the jar {minus version}], optionally we can have name in MANIFEST.MF file
+```
+ <configuration>
+                        <archive>
+                            <manifestEntries>
+                                <Automatic-Module-Name>api</Automatic-Module-Name>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+```
+
+keywords: "requires", "exports", "provides interface with Impl", "uses interface", "opens"
+
+module mymodule {
+    opens com.visa.domain; // for reflection API
+}
+
+package com.visa.domain;
+
+@Entity
+public class Customer {
+
+}
+
+Here JPA needs to access Customer thro reflection API
+
+-------------
+
+Class Data Sharing and Application Data Sharing
+
+ClassLoader:
+findLoadedClass(), loadClass(), findSystemClass(), verifyClass(), defineClass() --> Linking
+
+
+java -Xlog:class+load:file=classload.log -jar spring-demo.jar
+
+less classload.log or cat classload.log
+
+wc -l classload.log
+grep "source: shared" classload.log | wc -l
+
+
+
+java -XX:ArchiveClassesAtExit=sampleCDS.jsa  -Xlog:class+load:file=classload.log -jar spring-demo.jar
+Started SpringDemoApplication in 2.176 seconds
+
+
+java -verbose  -XX:SharedArchiveFile=sampleCDS.jsa -jar spring-demo.jar
+Started SpringDemoApplication in 1.487 seconds
+
+=====================
+
+To snapshot the top 10 stack frames of the current thread,
+
+     List<StackFrame> stack = StackWalker.getInstance().walk(s ->
+         s.limit(10).collect(Collectors.toList()));
+ 
+=============
+Local Variable Type Inference
+
+Sealed Class for better domain modeling
+
+```
+sealed interface JSONValue permit JsonArray, JsonObject,  JsonPrimitive {
+    String toJsonString();
+}
+
+final class JsonArray implements JSONValue {
+
+}
+
+final class JsonObject implements JSONValue {
+    
+}
+
+sealed class JsonPrimitive implements JSONValue permits JsonNumber, JsonBoolean {
+    
+}
+
+sealed class Node permits CDATASection, Text, Element {
+
+}
+
+non-sealed class Element extends Node{
+
+}
+
+
+```
