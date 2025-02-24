@@ -199,3 +199,61 @@ non-sealed class Element extends Node{
 
 
 ```
+
+using arrow operator in Switch statement:
+case "a", "b" -> "Stop";
+
+yield as alternate to arrow:
+```
+public static String getInformation(String data) {
+        return switch (data) {
+            case "a", "b" : {
+                System.out.println("Inside a or b");
+                yield "Stop";
+            }
+            case "c" : yield  "Go";
+            default : yield "Invalid";
+        };
+    }
+```
+
+Enhanced instanceof:
+```
+Object obj = new String("Hello World");
+    if(obj instanceof String s) {
+        // String s = (String) obj; // old way
+            System.out.println(s.length());
+    }
+```
+
+record type for immutable objects; instead of using @Value of lombok
+
+Java 23 is introducing value type --> Project Valahalla
+
+Product p = new Product("A", 534.44);
+HEADERS
+ClassInfo | Lock | waitlist | hashcode
+Name  | price
+
+List<Integer!> 
+
+===================
+
+JShell --> REPL --> similar to nodeJS 
+jshell> /list
+
+jshell --classpath mylib.jar
+
+========================
+
+FlightRecorder --> Monitoring events in application; Observability
+@Observed("")
+
+java -XX:StartFlightRecording:filename=sample.jfr FlightRecorderExample.java
+
+Java Mission Control [jmc]
+
+============
+
+Virtual threads --> goroutines [ Go Lang]
+

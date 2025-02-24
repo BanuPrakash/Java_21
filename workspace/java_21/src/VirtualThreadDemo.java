@@ -15,7 +15,7 @@ public class VirtualThreadDemo {
         var totalThread = 10000;
         var threads = IntStream.range(0, totalThread)
                 .mapToObj(
-                        thCount -> Thread.ofVirtual().unstarted(() -> {
+                        thCount -> Thread.ofPlatform().unstarted(() -> {
                             System.out.println("Virtual Thread : " + Thread.currentThread());
                         })).toList();
 
