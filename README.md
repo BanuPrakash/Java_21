@@ -257,3 +257,22 @@ Java Mission Control [jmc]
 
 Virtual threads --> goroutines [ Go Lang]
 
+Garbage Collection : CMS GC is deprecated
+
+instead we use generational GC
+
+EpsilonGC / G1GC / ZGC {current default in JDK 17}
+EpsilonGC --> No Garbage GC, us it only to allocate memory
+use cases : testing, 
+
+java  -XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC MemoryPolluter.java
+
+java  -XX:+UseZGC MemoryPolluter.java
+
+java  -XX:+G1GC MemoryPolluter.java
+
+
+javac --source 21 --enable-preview -Xlint:preview Template.java
+
+java --enable-preview Template 
+
