@@ -45,7 +45,6 @@ https://mydeveloperplanet.com/2022/04/05/how-to-manage-your-jdks-with-sdkman/#:~
 java 9 - 21 Features:
 
 Java 9(September 2017) : Java Module System, StackWalker, ADS, JShell, FlightRecorder, Stream takeWhile, dropWhile
-=
 
 Java 10(March 2018) : Local Variable Type Inference, List.copyOf for immutable collection
 
@@ -55,7 +54,7 @@ Java 12(March 2019) : String Indent, Repeat, strip, isBlank and Transform, Teein
 
 Java 13(September 2019) : TextBlocks
 
-Java 14(March 2020) : Yield Keyword, Helpful NullPointerExceptions
+Java 14(March 2020) : arrow and yield in switch, Helpful NullPointerExceptions
 
 Java 15(September 2020) : Garbage Collector Updates
 
