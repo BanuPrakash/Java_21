@@ -66,3 +66,40 @@ Java 18: jwebserver [simple web server]
 
 Java 21(September 2023) : Virtual Threads, StringTemplate, Record Patterns,  Pattern Matching for Switch
 
+========
+
+JPMS: Java Module System --> Project Jigsaw
+
+com.visa.prj.service package
+
+com.visa.prj.repo package
+
+
+OSGi --> Open service gateway initaitive
+
+METAINF.MF
+EXPORTS: com.visa.prj.service
+IMPORTS: com.visa.security
+
+JPMS:
+* Better Encapsulation
+* More readable
+* Smaller footprint
+
+Dockerfile
+FROM openjdk:8-jdk-alpine
+COPY target/docker-java-jar-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+
+java --list-modules
+java --describe-module java.logging
+java --describe-module java.sql 
+
+Types of modules:
+* System modules : java --list-modules
+* Unnamed modules: modules without module-info.java
+* Automatic modules: jars added to module-path and not to class-path. By default "jar" file becomes the module name, until mentioned in META-INF/MANIFEST.MF
+
+Maven Multi-module and JPMS with ServiceLocator
+
+jlink --module-path util.jar:impl.jar:client.jar --add-modules client,util,impl --output myimage --launcher MYAPP=client/pkg.Main
